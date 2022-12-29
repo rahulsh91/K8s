@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: external-name
+spec:
+  type: ExternalName
+  externalName: someapi.somecompany.com
+  selector:
+    app: kubia
+  ports:
+  - port: 80

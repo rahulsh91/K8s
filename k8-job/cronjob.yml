@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: batch-job-15mins
+spec:
+  schedule: "0/15 * * * *"
+  jobTemplate:
+    spec: 
+      template:
+         metadata:
+           labels:
+             app: periodic-batch_job
+         spec:
+           restartPolicy: OnFailure
+           containers:
+           - name: main
+             image: luksa/batch-job
