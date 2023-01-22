@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: object-quota
+spec:
+  hard:
+    pods: 10
+    secrets: 5
+    configmaps: 10
+    persistentvolumeclaims: 4
+    services: 4
+    services.loadbalancers: 1
+    services.nodeports: 2
+    ssd.storageclass.stroage.k8s.io/persistentvolumeclaims: 2

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prod-toleration
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: prod-tol
+  template:
+    metadata:   
+      labels:
+        app: prod-tol
+    spec:
+      containers:
+      - name: main
+        image: busybox
+        command: ["sleep", "99999"]
+      tolerations:
+      - key: node-type
+        operator: Equal
+        value: production
+        effect: NoSchedule
+

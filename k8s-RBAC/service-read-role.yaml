@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: ns1   #Roles are namespaced, here ns1 namespace is used
+  name: service-reader
+rules:
+- apiGroups: [""] # Here, service are resources in teh core apigroup,which has no name
+  verbs: ["get", "list"] # Getting the services by name and listing them all
+  resources: ["services"] #this rule only applies to the services resources
